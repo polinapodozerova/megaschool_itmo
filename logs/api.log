@@ -1,0 +1,404 @@
+2025-01-31 13:16:22 | INFO | Incoming request: GET http://127.0.0.1:8000/
+Request body: 
+2025-01-31 13:16:22 | INFO | Request completed: GET http://127.0.0.1:8000/
+Status: 404
+Response body: {"detail":"Not Found"}
+Duration: 0.003s
+2025-01-31 13:23:36 | INFO | Incoming request: GET http://127.0.0.1:8000/
+Request body: 
+2025-01-31 13:23:36 | INFO | Request completed: GET http://127.0.0.1:8000/
+Status: 404
+Response body: {"detail":"Not Found"}
+Duration: 0.002s
+2025-01-31 13:24:36 | INFO | Incoming request: POST http://127.0.0.1:8000/api/request
+Request body: {"id": "12345", "question": "Что такое искусственный интеллект?"}
+2025-01-31 13:24:36 | INFO | Request completed: POST http://127.0.0.1:8000/api/request
+Status: 422
+Response body: {"detail":[{"type":"missing","loc":["body","query"],"msg":"Field required","input":{"id":"12345","question":"Что такое искусственный интеллект?"}}]}
+Duration: 0.004s
+2025-01-31 13:24:46 | INFO | Incoming request: GET http://127.0.0.1:8000/
+Request body: 
+2025-01-31 13:24:46 | INFO | Request completed: GET http://127.0.0.1:8000/
+Status: 404
+Response body: {"detail":"Not Found"}
+Duration: 0.001s
+2025-01-31 13:26:28 | INFO | Incoming request: POST http://127.0.0.1:8000/api/request
+Request body: {"id": "12345", "question": "Что такое искусственный интеллект?"}
+2025-01-31 13:26:28 | INFO | Request completed: POST http://127.0.0.1:8000/api/request
+Status: 422
+Response body: {"detail":[{"type":"missing","loc":["body","query"],"msg":"Field required","input":{"id":"12345","question":"Что такое искусственный интеллект?"}}]}
+Duration: 0.002s
+2025-01-31 13:28:06 | INFO | Incoming request: GET http://127.0.0.1:8000/docs
+Request body: 
+2025-01-31 13:28:06 | INFO | Request completed: GET http://127.0.0.1:8000/docs
+Status: 200
+Response body: 
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui.css">
+    <link rel="shortcut icon" href="https://fastapi.tiangolo.com/img/favicon.png">
+    <title>FastAPI - Swagger UI</title>
+    </head>
+    <body>
+    <div id="swagger-ui">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui-bundle.js"></script>
+    <!-- `SwaggerUIBundle` is now available on the page -->
+    <script>
+    const ui = SwaggerUIBundle({
+        url: '/openapi.json',
+    "dom_id": "#swagger-ui",
+"layout": "BaseLayout",
+"deepLinking": true,
+"showExtensions": true,
+"showCommonExtensions": true,
+oauth2RedirectUrl: window.location.origin + '/docs/oauth2-redirect',
+    presets: [
+        SwaggerUIBundle.presets.apis,
+        SwaggerUIBundle.SwaggerUIStandalonePreset
+        ],
+    })
+    </script>
+    </body>
+    </html>
+    
+Duration: 0.001s
+2025-01-31 13:28:08 | INFO | Incoming request: GET http://127.0.0.1:8000/openapi.json
+Request body: 
+2025-01-31 13:28:08 | INFO | Request completed: GET http://127.0.0.1:8000/openapi.json
+Status: 200
+Response body: {"openapi":"3.1.0","info":{"title":"FastAPI","version":"0.1.0"},"paths":{"/api/request":{"post":{"summary":"Predict","operationId":"predict_api_request_post","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PredictionRequest"}}},"required":true},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"$ref":"#/components/schemas/PredictionResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}}},"components":{"schemas":{"HTTPValidationError":{"properties":{"detail":{"items":{"$ref":"#/components/schemas/ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"},"PredictionRequest":{"properties":{"id":{"type":"integer","title":"Id"},"query":{"type":"string","title":"Query"}},"type":"object","required":["id","query"],"title":"PredictionRequest"},"PredictionResponse":{"properties":{"id":{"type":"integer","title":"Id"},"answer":{"type":"integer","title":"Answer"},"reasoning":{"type":"string","title":"Reasoning"},"sources":{"items":{"type":"string","maxLength":2083,"minLength":1,"format":"uri"},"type":"array","title":"Sources"}},"type":"object","required":["id","answer","reasoning","sources"],"title":"PredictionResponse"},"ValidationError":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"}}}}
+Duration: 0.007s
+2025-01-31 13:31:26 | INFO | Incoming request: POST http://127.0.0.1:8000/api/request
+Request body: {
+  "id": 0,
+  "query": "В каком году был основан ИТМО? 1.1900 2.2010 3.2000 4.1956"
+}
+2025-01-31 13:31:26 | INFO | Processing prediction request with id: 0
+2025-01-31 13:31:26 | INFO | Successfully processed request 0
+2025-01-31 13:31:26 | INFO | Request completed: POST http://127.0.0.1:8000/api/request
+Status: 200
+Response body: {"id":0,"answer":1,"reasoning":"Из информации на сайте","sources":["https://itmo.ru/ru/","https://abit.itmo.ru/"]}
+Duration: 0.003s
+2025-01-31 19:14:36 | INFO | Incoming request: GET http://127.0.0.1:8000/docs
+Request body: 
+2025-01-31 19:14:36 | INFO | Request completed: GET http://127.0.0.1:8000/docs
+Status: 200
+Response body: 
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui.css">
+    <link rel="shortcut icon" href="https://fastapi.tiangolo.com/img/favicon.png">
+    <title>FastAPI - Swagger UI</title>
+    </head>
+    <body>
+    <div id="swagger-ui">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui-bundle.js"></script>
+    <!-- `SwaggerUIBundle` is now available on the page -->
+    <script>
+    const ui = SwaggerUIBundle({
+        url: '/openapi.json',
+    "dom_id": "#swagger-ui",
+"layout": "BaseLayout",
+"deepLinking": true,
+"showExtensions": true,
+"showCommonExtensions": true,
+oauth2RedirectUrl: window.location.origin + '/docs/oauth2-redirect',
+    presets: [
+        SwaggerUIBundle.presets.apis,
+        SwaggerUIBundle.SwaggerUIStandalonePreset
+        ],
+    })
+    </script>
+    </body>
+    </html>
+    
+Duration: 0.002s
+2025-01-31 19:14:37 | INFO | Incoming request: GET http://127.0.0.1:8000/openapi.json
+Request body: 
+2025-01-31 19:14:37 | INFO | Request completed: GET http://127.0.0.1:8000/openapi.json
+Status: 200
+Response body: {"openapi":"3.1.0","info":{"title":"FastAPI","version":"0.1.0"},"paths":{"/api/request":{"post":{"summary":"Predict","operationId":"predict_api_request_post","requestBody":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/PredictionRequest"}}},"required":true},"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"$ref":"#/components/schemas/PredictionResponse"}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}}},"components":{"schemas":{"HTTPValidationError":{"properties":{"detail":{"items":{"$ref":"#/components/schemas/ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"},"PredictionRequest":{"properties":{"id":{"type":"integer","title":"Id"},"query":{"type":"string","title":"Query"}},"type":"object","required":["id","query"],"title":"PredictionRequest"},"PredictionResponse":{"properties":{"id":{"type":"integer","title":"Id"},"answer":{"type":"integer","title":"Answer"},"reasoning":{"type":"string","title":"Reasoning"},"sources":{"items":{"type":"string","maxLength":2083,"minLength":1,"format":"uri"},"type":"array","title":"Sources"}},"type":"object","required":["id","answer","reasoning","sources"],"title":"PredictionResponse"},"ValidationError":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"}}}}
+Duration: 0.008s
+2025-01-31 19:15:01 | INFO | Incoming request: POST http://127.0.0.1:8000/api/request
+Request body: {
+  "id": 0,
+  "query": "В каком рейтинге (по состоянию на 2021 год) ИТМО впервые вошёл в топ-400 мировых университетов?\n1. ARWU (Shanghai Ranking)\n2. Times Higher Education (THE) World University Rankings\n3. QS World University Rankings\n4. U.S. News & World Report Best Global Universities"
+}
+2025-01-31 19:15:01 | INFO | Processing prediction request with id: 0
+2025-01-31 19:15:01 | ERROR | Internal error processing request 0: query
+2025-01-31 19:15:01 | INFO | Request completed: POST http://127.0.0.1:8000/api/request
+Status: 500
+Response body: {"detail":"Internal server error"}
+Duration: 0.005s
+2025-01-31 19:16:57 | INFO | Incoming request: POST http://127.0.0.1:8000/api/request
+Request body: {
+  "id": 0,
+  "query": "В каком рейтинге (по состоянию на 2021 год) ИТМО впервые вошёл в топ-400 мировых университетов?\n1. ARWU (Shanghai Ranking)\n2. Times Higher Education (THE) World University Rankings\n3. QS World University Rankings\n4. U.S. News & World Report Best Global Universities"
+}
+2025-01-31 19:16:57 | INFO | Processing prediction request with id: 0
+2025-01-31 19:16:57 | ERROR | Internal error processing request 0: query
+2025-01-31 19:16:57 | INFO | Request completed: POST http://127.0.0.1:8000/api/request
+Status: 500
+Response body: {"detail":"Internal server error"}
+Duration: 0.008s
+2025-01-31 19:17:42 | INFO | Incoming request: POST http://127.0.0.1:8000/api/request
+Request body: {
+  "id": 0,
+  "query": "В каком рейтинге (по состоянию на 2021 год) ИТМО впервые вошёл в топ-400 мировых университетов?\n1. ARWU (Shanghai Ranking)\n2. Times Higher Education (THE) World University Rankings\n3. QS World University Rankings\n4. U.S. News & World Report Best Global Universities"
+}
+2025-01-31 19:17:42 | INFO | Processing prediction request with id: 0
+2025-01-31 19:17:45 | ERROR | Internal error processing request 0: 'dict' object has no attribute 'answer'
+2025-01-31 19:17:45 | INFO | Request completed: POST http://127.0.0.1:8000/api/request
+Status: 500
+Response body: {"detail":"Internal server error"}
+Duration: 2.927s
+2025-01-31 19:18:51 | INFO | Incoming request: POST http://127.0.0.1:8000/api/request
+Request body: {
+  "id": 0,
+  "query": "В каком рейтинге (по состоянию на 2021 год) ИТМО впервые вошёл в топ-400 мировых университетов?\n1. ARWU (Shanghai Ranking)\n2. Times Higher Education (THE) World University Rankings\n3. QS World University Rankings\n4. U.S. News & World Report Best Global Universities"
+}
+2025-01-31 19:18:51 | INFO | Processing prediction request with id: 0
+2025-01-31 19:18:54 | ERROR | Internal error processing request 0: 'sources'
+2025-01-31 19:18:54 | INFO | Request completed: POST http://127.0.0.1:8000/api/request
+Status: 500
+Response body: {"detail":"Internal server error"}
+Duration: 3.129s
+2025-01-31 19:20:17 | INFO | Incoming request: POST http://127.0.0.1:8000/api/request
+Request body: {
+  "id": 0,
+  "query": "В каком рейтинге (по состоянию на 2021 год) ИТМО впервые вошёл в топ-400 мировых университетов?\n1. ARWU (Shanghai Ranking)\n2. Times Higher Education (THE) World University Rankings\n3. QS World University Rankings\n4. U.S. News & World Report Best Global Universities"
+}
+2025-01-31 19:20:17 | INFO | Processing prediction request with id: 0
+2025-01-31 19:20:20 | ERROR | Internal error processing request 0: 'dict' object has no attribute 'url'
+2025-01-31 19:20:20 | INFO | Request completed: POST http://127.0.0.1:8000/api/request
+Status: 500
+Response body: {"detail":"Internal server error"}
+Duration: 3.048s
+2025-01-31 19:21:02 | INFO | Incoming request: POST http://127.0.0.1:8000/api/request
+Request body: {
+  "id": 0,
+  "query": "В каком рейтинге (по состоянию на 2021 год) ИТМО впервые вошёл в топ-400 мировых университетов?\n1. ARWU (Shanghai Ranking)\n2. Times Higher Education (THE) World University Rankings\n3. QS World University Rankings\n4. U.S. News & World Report Best Global Universities"
+}
+2025-01-31 19:21:02 | INFO | Processing prediction request with id: 0
+2025-01-31 19:21:05 | INFO | Successfully processed request to tavily 0
+2025-01-31 19:21:07 | INFO | Successfully processed request to llama 0
+2025-01-31 19:21:07 | ERROR | Internal error processing request 0: id
+2025-01-31 19:21:07 | INFO | Request completed: POST http://127.0.0.1:8000/api/request
+Status: 500
+Response body: {"detail":"Internal server error"}
+Duration: 4.871s
+2025-01-31 19:21:24 | INFO | Incoming request: POST http://127.0.0.1:8000/api/request
+Request body: {
+  "id": 0,
+  "query": "В каком рейтинге (по состоянию на 2021 год) ИТМО впервые вошёл в топ-400 мировых университетов?\n1. ARWU (Shanghai Ranking)\n2. Times Higher Education (THE) World University Rankings\n3. QS World University Rankings\n4. U.S. News & World Report Best Global Universities"
+}
+2025-01-31 19:21:24 | INFO | Processing prediction request with id: 0
+2025-01-31 19:21:27 | INFO | Successfully processed request to tavily 0
+2025-01-31 19:21:29 | INFO | Successfully processed request to llama 0
+2025-01-31 19:21:29 | ERROR | Internal error processing request 0: <class 'schemas.request.PredictionRequest'> cannot be parametrized because it does not inherit from typing.Generic
+2025-01-31 19:21:29 | INFO | Request completed: POST http://127.0.0.1:8000/api/request
+Status: 500
+Response body: {"detail":"Internal server error"}
+Duration: 4.216s
+2025-01-31 19:23:51 | INFO | Incoming request: POST http://127.0.0.1:8000/api/request
+Request body: {
+  "id": 0,
+  "query": "В каком рейтинге (по состоянию на 2021 год) ИТМО впервые вошёл в топ-400 мировых университетов?\n1. ARWU (Shanghai Ranking)\n2. Times Higher Education (THE) World University Rankings\n3. QS World University Rankings\n4. U.S. News & World Report Best Global Universities"
+}
+2025-01-31 19:23:51 | INFO | Processing prediction request with id: 0
+2025-01-31 19:23:54 | INFO | Successfully processed request to tavily 0
+2025-01-31 19:23:55 | INFO | Successfully processed request to llama 0
+2025-01-31 19:23:55 | ERROR | Internal error processing request 0: Unable to generate pydantic-core schema for <built-in function id>. Set `arbitrary_types_allowed=True` in the model_config to ignore this error or implement `__get_pydantic_core_schema__` on your type to fully support it.
+
+If you got this error by calling handler(<some type>) within `__get_pydantic_core_schema__` then you likely need to call `handler.generate_schema(<some type>)` since we do not call `__get_pydantic_core_schema__` on `<some type>` otherwise to avoid infinite recursion.
+
+For further information visit https://errors.pydantic.dev/2.10/u/schema-for-unknown-type
+2025-01-31 19:23:55 | INFO | Request completed: POST http://127.0.0.1:8000/api/request
+Status: 500
+Response body: {"detail":"Internal server error"}
+Duration: 4.207s
+2025-01-31 19:24:50 | INFO | Incoming request: POST http://127.0.0.1:8000/api/request
+Request body: {
+  "id": 0,
+  "query": "В каком рейтинге (по состоянию на 2021 год) ИТМО впервые вошёл в топ-400 мировых университетов?\n1. ARWU (Shanghai Ranking)\n2. Times Higher Education (THE) World University Rankings\n3. QS World University Rankings\n4. U.S. News & World Report Best Global Universities"
+}
+2025-01-31 19:24:50 | INFO | Processing prediction request with id: 0
+2025-01-31 19:24:53 | INFO | Successfully processed request to tavily 0
+2025-01-31 19:24:54 | INFO | Successfully processed request to llama 0
+2025-01-31 19:24:54 | ERROR | Internal error processing request 0: <class 'schemas.request.PredictionRequest'> cannot be parametrized because it does not inherit from typing.Generic
+2025-01-31 19:24:54 | INFO | Request completed: POST http://127.0.0.1:8000/api/request
+Status: 500
+Response body: {"detail":"Internal server error"}
+Duration: 4.681s
+2025-01-31 19:28:36 | INFO | Incoming request: POST http://127.0.0.1:8000/api/request
+Request body: {
+  "id": 0,
+  "query": "В каком рейтинге (по состоянию на 2021 год) ИТМО впервые вошёл в топ-400 мировых университетов?\n1. ARWU (Shanghai Ranking)\n2. Times Higher Education (THE) World University Rankings\n3. QS World University Rankings\n4. U.S. News & World Report Best Global Universities"
+}
+2025-01-31 19:28:36 | INFO | Processing prediction request with id: 0
+2025-01-31 19:28:40 | INFO | Successfully processed request to tavily 0
+2025-01-31 19:28:42 | INFO | Successfully processed request to llama 0
+2025-01-31 19:28:42 | ERROR | Validation error for request 0: 2 validation errors for PredictionResponse
+answer
+  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='None из предлож...ному ответу.', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_parsing
+reasoning
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+2025-01-31 19:28:42 | INFO | Request completed: POST http://127.0.0.1:8000/api/request
+Status: 400
+Response body: {"detail":"2 validation errors for PredictionResponse\nanswer\n  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='None из предлож...ному ответу.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.10/v/int_parsing\nreasoning\n  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.10/v/string_type"}
+Duration: 5.641s
+2025-01-31 19:33:42 | INFO | Incoming request: POST http://127.0.0.1:8000/api/request
+Request body: {
+  "id": 0,
+  "query": "В каком рейтинге (по состоянию на 2021 год) ИТМО впервые вошёл в топ-400 мировых университетов?\n1. ARWU (Shanghai Ranking)\n2. Times Higher Education (THE) World University Rankings\n3. QS World University Rankings\n4. U.S. News & World Report Best Global Universities"
+}
+2025-01-31 19:33:42 | INFO | Processing prediction request with id: 0
+2025-01-31 19:33:45 | INFO | Successfully processed request to tavily 0
+2025-01-31 19:33:45 | INFO | Напиши какой из вариантов ответов соответствует                 данному правильному ответу:
+              Вопрос:В каком рейтинге (по состоянию на 2021 год) ИТМО впервые вошёл в топ-400 мировых университетов? 1. ARWU (Shanghai Ranking) 2. Times Higher Education (THE) World University Rankings 3. QS World University Rankings 4. U.S. News & World Report Best Global Universities
+              Правильный ответ:None
+              напиши одно число - вариант ответа                   соответствующий правильному
+2025-01-31 19:33:47 | INFO | Successfully processed request to llama 0
+2025-01-31 19:33:47 | ERROR | Validation error for request 0: 2 validation errors for PredictionResponse
+answer
+  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='None из предлож...х вариантов.', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.10/v/int_parsing
+reasoning
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+2025-01-31 19:33:47 | INFO | Request completed: POST http://127.0.0.1:8000/api/request
+Status: 400
+Response body: {"detail":"2 validation errors for PredictionResponse\nanswer\n  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='None из предлож...х вариантов.', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.10/v/int_parsing\nreasoning\n  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.10/v/string_type"}
+Duration: 5.284s
+2025-01-31 19:35:34 | INFO | Incoming request: POST http://127.0.0.1:8000/api/request
+Request body: {
+  "id": 0,
+  "query": "В каком рейтинге (по состоянию на 2021 год) ИТМО впервые вошёл в топ-400 мировых университетов?\n1. ARWU (Shanghai Ranking)\n2. Times Higher Education (THE) World University Rankings\n3. QS World University Rankings\n4. U.S. News & World Report Best Global Universities"
+}
+2025-01-31 19:35:34 | INFO | Processing prediction request with id: 0
+2025-01-31 19:35:44 | INFO | Successfully processed request to tavily 0
+2025-01-31 19:35:44 | INFO | Напиши какой из вариантов ответов соответствует                 данному правильному ответу:
+              Вопрос:В каком рейтинге (по состоянию на 2021 год) ИТМО впервые вошёл в топ-400 мировых университетов? 1. ARWU (Shanghai Ranking) 2. Times Higher Education (THE) World University Rankings 3. QS World University Rankings 4. U.S. News & World Report Best Global Universities
+              Правильный ответ:In 2021, ITMO University first entered the top-400 of the QS World University Rankings, securing the 365th position.
+              напиши одно число - вариант ответа                   соответствующий правильному
+2025-01-31 19:35:45 | INFO | Successfully processed request to llama 0
+2025-01-31 19:35:45 | INFO | Request completed: POST http://127.0.0.1:8000/api/request
+Status: 200
+Response body: {"id":0,"answer":3,"reasoning":"In 2021, ITMO University first entered the top-400 of the QS World University Rankings, securing the 365th position.","sources":["https://news.itmo.ru/en/news/9704/","https://news.itmo.ru/en/news/10389/","https://news.itmo.ru/en/news/9494/","https://www.universityrankings.ch/en/institutions/id46654-itmo_university-russia","https://en.itmo.ru/en/page/353/Rankings.htm"]}
+Duration: 11.360s
+2025-01-31 19:36:30 | INFO | Incoming request: POST http://127.0.0.1:8000/api/request
+Request body: {
+  "id": 0,
+  "query": "В каком рейтинге (по состоянию на 2021 год) ИТМО впервые вошёл в топ-400 мировых университетов?\n1. ARWU (Shanghai Ranking)\n2. Times Higher Education (THE) World University Rankings\n3. QS World University Rankings\n4. U.S. News & World Report Best Global Universities"
+}
+2025-01-31 19:36:30 | INFO | Processing prediction request with id: 0
+2025-01-31 19:36:34 | INFO | Successfully processed request to tavily 0
+2025-01-31 19:36:34 | INFO | Напиши какой из вариантов ответов соответствует                 данному правильному ответу:
+              Вопрос:В каком рейтинге (по состоянию на 2021 год) ИТМО впервые вошёл в топ-400 мировых университетов? 1. ARWU (Shanghai Ranking) 2. Times Higher Education (THE) World University Rankings 3. QS World University Rankings 4. U.S. News & World Report Best Global Universities
+              Правильный ответ:In 2021, ITMO University first entered the top 400 of the QS World University Rankings.
+              напиши одно число - вариант ответа                   соответствующий правильному
+2025-01-31 19:36:35 | INFO | Successfully processed request to llama 0
+2025-01-31 19:36:35 | INFO | Request completed: POST http://127.0.0.1:8000/api/request
+Status: 200
+Response body: {"id":0,"answer":3,"reasoning":"In 2021, ITMO University first entered the top 400 of the QS World University Rankings.","sources":["https://news.itmo.ru/en/news/9704/","https://news.itmo.ru/en/news/10389/","https://en.wikipedia.org/wiki/ITMO_University"]}
+Duration: 4.645s
+2025-01-31 20:09:18 | INFO | Incoming request: POST http://localhost:8000/api/request
+Request body: {
+  "query": "Какой из следующих языков программирования чаще всего изучают студенты ИТМО?
+
+1. Java
+2. C++
+3. Python
+4. Все перечисленные",
+  "id": 3
+}
+2025-01-31 20:09:18 | INFO | Request completed: POST http://localhost:8000/api/request
+Status: 422
+Response body: {"detail":[{"type":"json_invalid","loc":["body",90],"msg":"JSON decode error","input":{},"ctx":{"error":"Invalid control character at"}}]}
+Duration: 0.003s
+2025-01-31 20:10:35 | INFO | Incoming request: POST http://localhost:8000/api/request
+Request body: {
+  "query": "В каком городе находится главный кампус Университета ИТМО?\n1. Москва\n2. Санкт-Петербург\n3. Екатеринбург\n4. Нижний Новгород",
+  "id": 1
+}
+2025-01-31 20:10:35 | INFO | Processing prediction request with id: 1
+2025-01-31 20:10:39 | INFO | Successfully processed request to tavily 1
+2025-01-31 20:10:39 | INFO | Напиши какой из вариантов ответов соответствует                 данному правильному ответу:
+              Вопрос:В каком городе находится главный кампус Университета ИТМО? 1. Москва 2. Санкт-Петербург 3. Екатеринбург 4. Нижний Новгород
+              Правильный ответ:Главный кампус Университета ИТМО находится в Санкт-Петербурге.
+              напиши одно число - вариант ответа                   соответствующий правильному
+2025-01-31 20:10:41 | INFO | Successfully processed request to llama 1
+2025-01-31 20:10:41 | INFO | Request completed: POST http://localhost:8000/api/request
+Status: 200
+Response body: {"id":1,"answer":2,"reasoning":"Главный кампус Университета ИТМО находится в Санкт-Петербурге.","sources":["https://realty.ria.ru/20230109/itmo-1843634496.html","https://itmo.ru/ru/page/89/1._osnovnye_svedeniya.htm","https://itmo.ru/ru/map/karta_korpusov.htm"]}
+Duration: 5.330s
+2025-01-31 20:46:48 | INFO | Incoming request: POST http://localhost:8080/api/request
+Request body: {
+  "query": "Какой из следующих языков программирования чаще всего изучают студенты ИТМО?\n1. Java\n2. C++\n3. Python\n4. Все перечисленные",
+  "id": 3
+}
+2025-01-31 20:46:48 | INFO | Processing prediction request with id: 3
+2025-01-31 20:46:53 | INFO | Successfully processed request to tavily 3
+2025-01-31 20:46:53 | INFO | Напиши какой из вариантов ответов соответствует                 данному правильному ответу:
+              Вопрос:Какой из следующих языков программирования чаще всего изучают студенты ИТМО? 1. Java 2. C++ 3. Python 4. Все перечисленные
+              Правильный ответ:Студенты ИТМО чаще всего изучают все перечисленные языки программирования: Java, C++, и Python.
+              напиши одно число - вариант ответа                   соответствующий правильному
+2025-01-31 20:46:55 | INFO | Successfully processed request to llama 3
+2025-01-31 20:46:55 | INFO | Request completed: POST http://localhost:8080/api/request
+Status: 200
+Response body: {"id":3,"answer":4,"reasoning":"Студенты ИТМО чаще всего изучают все перечисленные языки программирования: Java, C++, и Python.","sources":["https://tproger.ru/articles/5-samyh-vostrebovannyh-yazykov-programmirovaniya-v-2025-godu","https://proglib.io/p/top-5-yazykov-programmirovaniya-kotorye-stoit-izuchit-v-2025-godu-2024-12-18","https://tproger.ru/articles/kakie-yazyki-programmirovaniya-uchit-v-2025-godu"]}
+Duration: 7.042s
+2025-01-31 21:13:59 | INFO | Incoming request: POST http://localhost:8080/api/request
+Request body: {
+  "query": "Какое международное сотрудничество активно развивает ИТМО?\n1. Сотрудничество с университетами США\n2. Сотрудничество с университетами Европы и Азии\n3. Сотрудничество с университетами Африки\n4. Сотрудничество с университетами Австралии",
+  "id": 3
+}
+2025-01-31 21:13:59 | INFO | Processing prediction request with id: 3
+2025-01-31 21:14:06 | INFO | Successfully processed request to tavily 3
+2025-01-31 21:14:06 | INFO | Напиши какой из вариантов ответов соответствует                 данному правильному ответу:
+              Вопрос:Какое международное сотрудничество активно развивает ИТМО? 1. Сотрудничество с университетами США 2. Сотрудничество с университетами Европы и Азии 3. Сотрудничество с университетами Африки 4. Сотрудничество с университетами Австралии
+              Правильный ответ:ИТМО активно развивает международное сотрудничество с университетами Европы и Азии.
+              напиши одно число - вариант ответа                   соответствующий правильному
+2025-01-31 21:14:08 | INFO | Successfully processed request to llama 3
+2025-01-31 21:14:08 | INFO | Request completed: POST http://localhost:8080/api/request
+Status: 200
+Response body: {"id":3,"answer":"2","reasoning":"ИТМО активно развивает международное сотрудничество с университетами Европы и Азии.","sources":["https://news.itmo.ru/en/announce/108465/","https://oia.ugm.ac.id/2024/11/07/itmo-university-winter-school-2025/","https://oia.ugm.ac.id/2024/09/25/itmo-university-exchange-spring-2025/"]}
+Duration: 8.703s
+2025-01-31 21:14:43 | INFO | Incoming request: POST http://localhost:8080/api/request
+Request body: {
+  "query": "Какой из следующих проектов ИТМО связан с искусственным интеллектом?\n1. ITMO AI Lab\n2. ITMO Smart City\n3. ITMO Cybersecurity Center\n4. ITMO Data Science Institute",
+  "id": 3
+}
+2025-01-31 21:14:43 | INFO | Processing prediction request with id: 3
+2025-01-31 21:14:44 | INFO | Incoming request: POST http://localhost:8080/api/request
+Request body: {
+  "query": "Какой проект был запущен в ИТМО для поддержки стартапов?\n1. ITMO Accelerator\n2. ITMO Innovation Hub\n3. ITMO Business School\n4. ITMO Research Center",
+  "id": 3
+}
+2025-01-31 21:14:44 | INFO | Processing prediction request with id: 3
+2025-01-31 21:14:48 | INFO | Successfully processed request to tavily 3
+2025-01-31 21:14:48 | INFO | Напиши какой из вариантов ответов соответствует                 данному правильному ответу:
+              Вопрос:Какой проект был запущен в ИТМО для поддержки стартапов? 1. ITMO Accelerator 2. ITMO Innovation Hub 3. ITMO Business School 4. ITMO Research Center
+              Правильный ответ:The project launched at ITMO for supporting startups is the ITMO Accelerator. This initiative, in collaboration with a telecommunication company MTS, focuses on developing 5G technologies and aims to enhance entrepreneurs' knowledge in this field while fostering the creation of products based on new-generation mobile communication.
+              напиши одно число - вариант ответа                   соответствующий правильному
+2025-01-31 21:14:48 | INFO | Successfully processed request to tavily 3
+2025-01-31 21:14:48 | INFO | Напиши какой из вариантов ответов соответствует                 данному правильному ответу:
+              Вопрос:Какой из следующих проектов ИТМО связан с искусственным интеллектом? 1. ITMO AI Lab 2. ITMO Smart City 3. ITMO Cybersecurity Center 4. ITMO Data Science Institute
+              Правильный ответ:Из предоставленных данных и источников, сам проект ИТМО, связанный с искусственным интеллектом, это ITMO AI Lab. Этот центр был создан на базе Университета ИТМО и стал победителем конкурса грантов в рамках федерального проекта Искусственный интеллект, целью которого является сформировать каноны сильного ИИ в промышленности.
+              напиши одно число - вариант ответа                   соответствующий правильному
+2025-01-31 21:14:50 | INFO | Successfully processed request to llama 3
+2025-01-31 21:14:50 | INFO | Request completed: POST http://localhost:8080/api/request
+Status: 200
+Response body: {"id":3,"answer":"1","reasoning":"The project launched at ITMO for supporting startups is the ITMO Accelerator. This initiative, in collaboration with a telecommunication company MTS, focuses on developing 5G technologies and aims to enhance entrepreneurs' knowledge in this field while fostering the creation of products based on new-generation mobile communication.","sources":["https://en.itmo.ru/en/page/307/Innovations_support.htm","https://news.itmo.ru/en/news/14052/","https://news.itmo.ru/en/university_live/achievements/news/13127/"]}
+Duration: 6.428s
+2025-01-31 21:14:51 | INFO | Successfully processed request to llama 3
+2025-01-31 21:14:51 | INFO | Request completed: POST http://localhost:8080/api/request
+Status: 200
+Response body: {"id":3,"answer":"1","reasoning":"Из предоставленных данных и источников, сам проект ИТМО, связанный с искусственным интеллектом, это ITMO AI Lab. Этот центр был создан на базе Университета ИТМО и стал победителем конкурса грантов в рамках федерального проекта Искусственный интеллект, целью которого является сформировать каноны сильного ИИ в промышленности.","sources":["https://ict2go.ru/events/56748/","https://itmo.ru/ru/viewdepartment/499/issledovatelskiy_centr_v_sfere_iskusstvennogo_intellekta_silnyy_iskusstvennyy_intellekt_v_promyshlennosti.htm","https://news.itmo.ru/ru/news/14092/"]}
+Duration: 8.570s
