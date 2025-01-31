@@ -2,14 +2,15 @@ import os
 from openai import AsyncOpenAI
 from together import AsyncTogether
 
+TOGETHER_API_KEY = os.environ['TOGETHER_API_KEY']
 client = AsyncTogether(
-    base_url="https://api.scaleway.ai/v1",
+    base_url="https://api.together.xyz/v1",
     api_key=os.environ['TOGETHER_API_KEY'])
 
 model = "meta-llama/Llama-3.3-70B-Instruct-Turbo"
 
 async def get_option(query, correct_answer):
-    completion = await client.chat.complete(
+    completion = await client.chat.completions.create(
         model=model,
         messages=[{"role": "user", "content":
                   f"Напиши какой из вариантов ответов соответствует \
@@ -35,4 +36,3 @@ def check_if_options_exist(query):
     if '1.' in query or '1)' in query or '1 )' in query or ' 1 ' in query:
         return True
     return False
-
